@@ -1,0 +1,43 @@
+<?php
+     if(!isset($_POST["submit"]))
+     {
+         header("location:Home.php");
+         exit();
+     }
+     $selecteddate=$_POST["date"];
+     $selectedtime=$_POST["time"];
+     date_default_timezone_set("Asia/Calcutta");
+     $todaydate=date("d/m/y");
+    if($selecteddate==$todaydate)
+    {
+        $pt=date("H:i");
+        if($selectedtime<$pt)
+        {
+            session_start();
+            $_SESSION['dateverify']=true;
+            header("location:tableBook.php");
+            exit();
+        }
+    }
+    $people=$_POST["people"];
+    $name=$_POST["name"];
+    $email=$_POST["email"];
+    $mob=$_POST["mobile"]; 
+    $status="Success";
+    $ser="localhost";
+    $u="root";
+    $p="";
+    $db="cafebiblio";
+    $con=new mysqli($ser,$u,$p,$db);
+    $sq="insert into bookinginfo values('$name','$email','$mob','$people','$selecteddate','$selectedtime','$status')";
+    if(($con->query($sq)))
+    {
+        session_start();
+        $_SESSION['bookverify']=true;
+        header("location:tableBook.php");
+        exit();
+    }
+    else{
+        echo "wrong";
+    }
+?>

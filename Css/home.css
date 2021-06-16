@@ -1,0 +1,63 @@
+.content {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: right;
+  margin: 0 auto;
+  flex-grow: 1;
+}
+.sub-content {
+  width: 60%;
+  margin: 30px auto;
+  text-align: justify;
+}
+.add {
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 500;
+}
+.btn {
+  margin: 0;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.btn a {
+  color: white;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  background-color: #1d1c1c;
+  border: 3px solid #fbfbfb;
+}
+.btn :nth-child(2) {
+  margin-left: 40px;
+}
+.btn :nth-child(1) {
+  font-weight: bold;
+  color: #1d1c1c;
+  background: #fbfbfb;
+}
+.modifiy {
+  font-weight: 700;
+}
+@media screen and (max-width: 1050px) {
+  .btn a {
+    display: flex;
+    flex-direction: column;
+  }
+  .btn :nth-child(2) {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .content {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 0.8rem;
+  }
+}

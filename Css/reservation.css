@@ -1,0 +1,38 @@
+reservation-main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-grow: 1;
+  height: 100%;
+  background-color: red;
+}
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.pre-book {
+  display: flex;
+  justify-content: space-between;
+}
+.pre-book p {
+  font-weight: 500;
+}
+.forget {
+  font-weight: 500;
+  color: #ff507d;
+}
+.profile span {
+  font-size: 1.2em;
+  padding: 1rem;
+}
+.profile a {
+  padding: 1rem;
+}
+.hist p {
+  margin: 1rem;
+}
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 0.8rem;
+  }
+}

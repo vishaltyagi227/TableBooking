@@ -1,0 +1,41 @@
+<?php
+    if(!isset($_POST["submit"]))
+    {
+        header("location:Home.php");
+        exit();
+    }
+    $email=$_POST["email"];
+    $password=md5($_POST["password"]);
+    $ser="localhost";
+    $u="root";
+    $p="";
+    $db="cafebiblio";
+    $con=new mysqli($ser,$u,$p,$db);
+    $sq="select Password from userinformation where email='$email'";
+    $rs=$con->query($sq);
+    $c=$rs->num_rows;
+    if($c==0)
+    {
+        session_start();
+        $_SESSION['signinverify']=true;
+        header("location:Signin.php");
+    }
+    else{
+        $r=$rs->fetch_array();
+        $pass=$r[0];
+        if($password==$pass)
+        {
+            session_start();
+            unset($_SESSION['signinverify']);
+            $_SESSION['reserveverify']=true;
+            $_SESSION['username']=$email;
+            header("location:Home.php");
+        }
+        else{
+            session_start();
+            $_SESSION['signinverify']=true;
+            header("location:Signin.php");
+        }
+    }
+  
+?>
